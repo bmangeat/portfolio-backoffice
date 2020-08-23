@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://portfolio-api-bricemangeat.herokuapp.com/'
+const API_URL = 'https://portfolio-api-bricemangeat.herokuapp.com/'
 
 class AuthService {
     login(username, password) {
