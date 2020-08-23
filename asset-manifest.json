@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/portfolio-backoffice/static/css/main.7a4e4891.chunk.css",
+    "main.js": "/portfolio-backoffice/static/js/main.b846b3e8.chunk.js",
+    "main.js.map": "/portfolio-backoffice/static/js/main.b846b3e8.chunk.js.map",
+    "runtime-main.js": "/portfolio-backoffice/static/js/runtime-main.0584c0a4.js",
+    "runtime-main.js.map": "/portfolio-backoffice/static/js/runtime-main.0584c0a4.js.map",
+    "static/css/2.11829350.chunk.css": "/portfolio-backoffice/static/css/2.11829350.chunk.css",
+    "static/js/2.7e194060.chunk.js": "/portfolio-backoffice/static/js/2.7e194060.chunk.js",
+    "static/js/2.7e194060.chunk.js.map": "/portfolio-backoffice/static/js/2.7e194060.chunk.js.map",
+    "index.html": "/portfolio-backoffice/index.html",
+    "precache-manifest.c034706b25c1e0c584bef9a86d690a2d.js": "/portfolio-backoffice/precache-manifest.c034706b25c1e0c584bef9a86d690a2d.js",
+    "service-worker.js": "/portfolio-backoffice/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/portfolio-backoffice/static/css/2.11829350.chunk.css.map",
+    "static/css/main.7a4e4891.chunk.css.map": "/portfolio-backoffice/static/css/main.7a4e4891.chunk.css.map",
+    "static/js/2.7e194060.chunk.js.LICENSE.txt": "/portfolio-backoffice/static/js/2.7e194060.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0584c0a4.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.7e194060.chunk.js",
+    "static/css/main.7a4e4891.chunk.css",
+    "static/js/main.b846b3e8.chunk.js"
+  ]
+}
