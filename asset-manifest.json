@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/portfolio-backoffice/static/css/main.7a4e4891.chunk.css",
-    "main.js": "/portfolio-backoffice/static/js/main.2612b377.chunk.js",
-    "main.js.map": "/portfolio-backoffice/static/js/main.2612b377.chunk.js.map",
+    "main.css": "/portfolio-backoffice/static/css/main.2505b687.chunk.css",
+    "main.js": "/portfolio-backoffice/static/js/main.318350c2.chunk.js",
+    "main.js.map": "/portfolio-backoffice/static/js/main.318350c2.chunk.js.map",
     "runtime-main.js": "/portfolio-backoffice/static/js/runtime-main.4405179e.js",
     "runtime-main.js.map": "/portfolio-backoffice/static/js/runtime-main.4405179e.js.map",
     "static/css/2.d9ad5f5c.chunk.css": "/portfolio-backoffice/static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.0c48993c.chunk.js": "/portfolio-backoffice/static/js/2.0c48993c.chunk.js",
-    "static/js/2.0c48993c.chunk.js.map": "/portfolio-backoffice/static/js/2.0c48993c.chunk.js.map",
+    "static/js/2.db6c452d.chunk.js": "/portfolio-backoffice/static/js/2.db6c452d.chunk.js",
+    "static/js/2.db6c452d.chunk.js.map": "/portfolio-backoffice/static/js/2.db6c452d.chunk.js.map",
     "index.html": "/portfolio-backoffice/index.html",
-    "precache-manifest.d019318b1c03f0d1794f62dcadbeef0f.js": "/portfolio-backoffice/precache-manifest.d019318b1c03f0d1794f62dcadbeef0f.js",
+    "precache-manifest.58a586f6daa1923751491c8a6191d648.js": "/portfolio-backoffice/precache-manifest.58a586f6daa1923751491c8a6191d648.js",
     "service-worker.js": "/portfolio-backoffice/service-worker.js",
     "static/css/2.d9ad5f5c.chunk.css.map": "/portfolio-backoffice/static/css/2.d9ad5f5c.chunk.css.map",
-    "static/css/main.7a4e4891.chunk.css.map": "/portfolio-backoffice/static/css/main.7a4e4891.chunk.css.map",
-    "static/js/2.0c48993c.chunk.js.LICENSE.txt": "/portfolio-backoffice/static/js/2.0c48993c.chunk.js.LICENSE.txt"
+    "static/css/main.2505b687.chunk.css.map": "/portfolio-backoffice/static/css/main.2505b687.chunk.css.map",
+    "static/js/2.db6c452d.chunk.js.LICENSE.txt": "/portfolio-backoffice/static/js/2.db6c452d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4405179e.js",
     "static/css/2.d9ad5f5c.chunk.css",
-    "static/js/2.0c48993c.chunk.js",
-    "static/css/main.7a4e4891.chunk.css",
-    "static/js/main.2612b377.chunk.js"
+    "static/js/2.db6c452d.chunk.js",
+    "static/css/main.2505b687.chunk.css",
+    "static/js/main.318350c2.chunk.js"
   ]
 }
