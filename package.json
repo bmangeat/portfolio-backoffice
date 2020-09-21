@@ -1,6 +1,6 @@
 {
-  "name": "react-jwt-auth",
-  "version": "0.1.0",
+  "name": "backoffice-portfolio",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://bmangeat.github.io/portfolio-backoffice/",
   "dependencies": {
