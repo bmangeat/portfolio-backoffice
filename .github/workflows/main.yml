@@ -1,4 +1,4 @@
-name: Build and Deploy on https://bmangeat.github.io/dashboard-hero/
+name: Build and Deploy on https://bmangeat.github.io/portfolio-backoffice
 
 on:
   push:
@@ -8,10 +8,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
 
     steps:
       - name: Checkout 🛎️
