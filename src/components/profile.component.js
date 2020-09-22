@@ -4,19 +4,19 @@ import React, { useState } from "react"
 import AuthService from "../services/auth.service"
 
 const Profile = () => {
-    const [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser())
+    const [ currentUser ] = useState( AuthService.getCurrentUser() )
 
     return (
         <div className="container">
             <header className="jumbotron">
                 <h3>
-                   {currentUser.username} Profile
+                    {currentUser.username} Profile
                 </h3>
             </header>
             <p>
                 <strong>Token : </strong>
-                {currentUser.accessToken.substring(0,20)} ... {" "}
-                {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+                {currentUser.accessToken.substring( 0, 20 )} ... {" "}
+                {currentUser.accessToken.substr( currentUser.accessToken.length - 20 )}
             </p>
 
             <p>
@@ -31,7 +31,7 @@ const Profile = () => {
             <strong>Authorities</strong>
             <ul>
                 {currentUser.roles &&
-                currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+                currentUser.roles.map( ( role, index ) => <li key={index}>{role}</li> )}
             </ul>
         </div>
     )

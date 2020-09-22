@@ -6,22 +6,22 @@ const API_URL = 'https://portfolio-api-bricemangeat.herokuapp.com/api/test/'
 class UserService {
     getPublicContent() {
         return axios
-            .get(API_URL + `all`)
+            .get( API_URL + `all` )
     }
 
-    getUserBoard(){
+    getUserBoard() {
         return axios
-            .get(API_URL + `user` , {headers: authHeader()})
+            .get( API_URL + `user`, { headers: authHeader() } )
     }
 
-    getModBoard(){
+    getModBoard() {
         return axios
-            .get(API_URL + `mod`, {headers: authHeader()})
+            .get( API_URL + `mod`, { headers: authHeader() } )
     }
 
-    getAdminBoard(){
+    getAdminBoard() {
         return axios
-            .get(API_URL + `admin`, {headers: authHeader()})
+            .get( API_URL + `admin`, { headers: authHeader() } )
     }
 }
 
