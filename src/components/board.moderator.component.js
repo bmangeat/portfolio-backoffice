@@ -1,40 +1,30 @@
-import React, {Component} from "react"
+import React, { useEffect, useState } from "react"
 
 import UserService from "../services/user.service"
 
-export default class ModBoard extends Component{
-    constructor(props) {
-        super(props);
+const ModBoard = () => {
 
-        this.state = {
-            content : ""
-        }
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         UserService.getModBoard()
             .then(
                 response => {
-                    this.setState({
-                        content: response.data
-                    })
+                    setModContent( response.data )
                 },
                 err => {
-                    this.setState({
-                        content : (err.response && err.response.data && err.response.data) || err.message || err.toString()
-                    })
+                    setModContent( (err.response && err.response.data && err.response.data) || err.message || err.toString() )
                 }
             )
-    }
+    }, [])
+    const [modContent, setModContent] = useState("")
 
-    render() {
-        return(
-            <div className="container">
-                <header className="jumbotron">
-                    <h3>{this.state.content}</h3>
-                </header>
-            </div>
-        )
-    }
+    return(
+        <div className="container">
+            <header className="jumbotron">
+                <h3>{modContent}</h3>
+            </header>
+        </div>
+    )
 
 }
+
+export default ModBoard

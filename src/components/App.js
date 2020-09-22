@@ -11,7 +11,7 @@ import Login from "./login.component"
 import Register from "./register.component"
 import Home from "./home.component"
 import Profile from "./profile.component"
-import BoardUser from "./board-user.component"
+import UserBoard from "./board-user.component"
 import AdminBoard from "./board.admin.component"
 import ModBoard from "./board.moderator.component"
 
@@ -100,7 +100,7 @@ const App = () => {
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/profile" component={Profile}/>
-                        <Route path="/user" component={BoardUser}/>
+                        <Route path="/user" component={UserBoard}/>
                         <Route path="/mod" component={ModBoard}/>
                         <Route path="/admin" component={AdminBoard}/>
                     </Switch>

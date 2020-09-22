@@ -1,41 +1,29 @@
-import React, {Component} from "react"
+import React, { useEffect, useState } from "react"
 
 import UserService from "../services/user.service"
 
-export default class Home extends Component{
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            content: ""
-        }
-    }
-
-    componentDidMount() {
+const Home = () => {
+    useEffect(()=>{
         UserService.getPublicContent()
             .then(
                 response => {
-                    this.setState({
-                        content : response.data
-                    })
+                    setHomeContent(response.data)
                 },
                 err => {
-                    this.setState({
-                        content: (err.response && err.response.data) || err.message || err.toString()
-                    })
+                    setHomeContent((err.response && err.response.data) || err.message || err.toString())
                 }
             )
-    }
+    })
 
-    render() {
-        return (
-            <div className="container">
-                <header className="jumbotron">
-                    <h3>{this.state.content}</h3>
-                </header>
-            </div>
-        )
-    }
+    const [homeContent, setHomeContent] = useState("")
 
-
+    return (
+        <div className="container">
+            <header className="jumbotron">
+                <h3>{homeContent}</h3>
+            </header>
+        </div>
+    )
 }
+
+export default Home

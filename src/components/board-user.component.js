@@ -1,40 +1,31 @@
-import React, {Component} from "react"
+import React, { useEffect, useState } from "react"
 
 import UserService from "../services/user.service"
 
-export default class BoardUser extends Component{
-    constructor(props) {
-        super(props);
+const UserBoard = () => {
 
-        this.state = {
-            content : ""
-        }
-    }
-
-    componentDidMount() {
+    useEffect( () => {
         UserService.getUserBoard()
             .then(
                 response => {
-                    this.setState({
-                        content: response.data
-                    })
+                    setUserContent( response.data )
                 },
                 err => {
-                    this.setState({
-                        content : (err.response && err.response.data && err.response.data) || err.message || err.toString()
-                    })
+                    setUserContent( (err.response && err.response.data && err.response.data) || err.message || err.toString() )
                 }
             )
-    }
+    }, [] )
 
-    render() {
-        return(
-            <div className="container">
-                <header className="jumbotron">
-                    <h3>{this.state.content}</h3>
-                </header>
-            </div>
-        )
-    }
+    const [ userContent, setUserContent ] = useState("")
+
+    return (
+        <div className="container">
+            <header className="jumbotron">
+                <h3>{userContent}</h3>
+            </header>
+        </div>
+    )
 
 }
+
+export default UserBoard
