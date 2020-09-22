@@ -5,7 +5,6 @@ import CheckButton from "react-validation/build/button";
 import { useHistory } from "react-router-dom";
 
 
-
 import AuthService from "../services/auth.service";
 
 const required = value => {
@@ -28,14 +27,6 @@ const Login = () => {
 
     let loginForm = React.createRef()
     let checkBtn = React.createRef()
-
-    const onChangeUsername = ( event ) => {
-        setUsername( event.target.value )
-    }
-
-    const onChangePassword = ( event ) => {
-        setPassword( event.target.value )
-    }
 
     const handleLogin = ( event ) => {
         event.preventDefault()
@@ -86,7 +77,7 @@ const Login = () => {
                             className="form-control"
                             name="username"
                             value={username}
-                            onChange={onChangeUsername}
+                            onChange={( event ) => setUsername( event.target.value )}
                             validations={[ required ]}
                         />
                     </div>
@@ -97,7 +88,7 @@ const Login = () => {
                             className="form-control"
                             name="password"
                             value={password}
-                            onChange={onChangePassword}
+                            onChange={( event ) => setPassword( event.target.value )}
                             validations={[ required ]}
                         />
                     </div>
