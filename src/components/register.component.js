@@ -1,50 +1,9 @@
 import React, { useState } from "react"
-import Form from "react-validation/build/form"
-import Input from "react-validation/build/input"
-import CheckButton from "react-validation/build/button"
+import { useForm } from 'react-hook-form'
 import { isEmail } from "validator"
 
+// Import services
 import AuthService from "../services/auth.service"
-
-const required = value => {
-    if ( !value ) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This field is required
-            </div>
-        )
-    }
-}
-
-const vemail = value => {
-    if ( !isEmail( value ) ) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                This is not a valid email.
-            </div>
-        )
-    }
-}
-
-const vusername = value => {
-    if ( value.lenght < 3 || value.lenght > 20 ) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                The username must be between 3 and 20 characters.
-            </div>
-        )
-    }
-}
-
-const vpassword = value => {
-    if ( value.lenght < 6 || value.lenght > 40 ) {
-        return (
-            <div className="alert alert-danger" role="alert">
-                The password must be between 6 and 40 characters.
-            </div>
-        )
-    }
-}
 
 const Register = () => {
     const [ username, setUsername ] = useState( '' )
@@ -53,31 +12,27 @@ const Register = () => {
     const [ registerMessage, setRegisterMessage ] = useState( '' )
     const [ successful, setSuccessful ] = useState( false )
 
-    let registerForm = React.createRef()
-    let checkBtn = React.createRef()
+    const { register, handleSubmit, errors } = useForm()
 
-    const handleRegister = ( event ) => {
-        event.preventDefault()
-        registerForm.validateAll()
+    const onRegister = () => {
+        AuthService.register( username, email, password )
+            .then(
+                ( response ) => {
+                    setRegisterMessage( response.data.message )
+                    setSuccessful( true )
 
-        if ( checkBtn.context._errors.length === 0 ) {
-            AuthService.register( username, email, password )
-                .then(
-                    ( response ) => {
-                        setRegisterMessage( response.data.message )
-                        setSuccessful( true )
+                },
+                ( err ) => {
+                    setSuccessful( false )
+                    setRegisterMessage(
+                        (err.response && err.response.data && err.response.data.message) ||
+                        err.message ||
+                        err.toString() )
+                }
+            )
 
-                    },
-                    ( err ) => {
-                        setSuccessful( false )
-                        setRegisterMessage(
-                            (err.response && err.response.data && err.response.data.message) ||
-                            err.message ||
-                            err.toString() )
-                    }
-                )
-        }
     }
+
 
     return (
         <div className="col-md-12">
@@ -87,18 +42,12 @@ const Register = () => {
                     alt="profile-img"
                     className="profile-img-card"
                 />
-
-                <Form
-                    onSubmit={handleRegister}
-                    ref={c => {
-                        registerForm = c;
-                    }}>
-
+                <form onSubmit={handleSubmit( onRegister )}>
                     {!successful && (
                         <div>
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
-                                <Input
+                                <input
                                     type="text"
                                     className="form-control"
                                     name="username"
@@ -106,40 +55,60 @@ const Register = () => {
                                     onChange={( event ) => {
                                         setUsername( event.target.value )
                                     }}
-                                    validations={[ required, vusername ]}
+                                    ref={register( { required, maxLength: 20, minLength: 3 } )}
                                 />
+                                {
+                                    errors.username &&
+                                    <div className="alert alert-danger" role="alert">
+                                        The username must be between 3 and 20 characters.
+                                    </div>
+                                }
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
-                                <Input
+                                <input
                                     type="text"
                                     className="form-control"
                                     name="email"
                                     value={email}
-                                    onChange={(event) => {setEmail(event.target.value)}}
-                                    validations={[ required, vemail ]}
+                                    onChange={( event ) => {
+                                        setEmail( event.target.value )
+                                    }}
+                                    ref={register( { required, validate: isEmail } )}
                                 />
+                                {
+                                    errors.email &&
+                                    <div className="alert alert-danger" role="alert">
+                                        This is not a valid email..
+                                    </div>
+                                }
                             </div>
 
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
-                                <Input
+                                <input
                                     type="password"
                                     className="form-control"
                                     name="password"
                                     value={password}
-                                    onChange={(event) => {setPassword(event.target.value)}}
-                                    validations={[ required, vpassword ]}
+                                    onChange={( event ) => {
+                                        setPassword( event.target.value )
+                                    }}
+                                    ref={register( { required, maxLength: 40, minLength: 6 } )}
                                 />
+                                {
+                                    errors.password &&
+                                    <div className="alert alert-danger" role="alert">
+                                        The password must be between 6 and 40 characters.
+                                    </div>
+                                }
                             </div>
-
                             <div className="form-group">
-                                <button className="btn btn-primary btn-block">Sign Up</button>
+                                <input className="btn btn-primary btn-block" type="submit" value="Sign up"/>
                             </div>
                         </div>
                     )}
-
                     {registerMessage && (
                         <div className="form-group">
                             <div
@@ -154,14 +123,7 @@ const Register = () => {
                             </div>
                         </div>
                     )}
-                    <CheckButton
-                        style={{ display: "none" }}
-                        ref={c => {
-                            checkBtn = c;
-                        }}
-                    />
-                </Form>
-
+                </form>
             </div>
         </div>
     )
