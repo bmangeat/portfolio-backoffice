@@ -18,8 +18,8 @@ const Register = () => {
         AuthService.register( username, email, password )
             .then(
                 ( response ) => {
-                    setRegisterMessage( response.data.message )
                     setSuccessful( true )
+                    setRegisterMessage( response.data.message )
 
                 },
                 ( err ) => {
@@ -32,7 +32,6 @@ const Register = () => {
             )
 
     }
-
 
     return (
         <div className="col-md-12">
@@ -55,7 +54,7 @@ const Register = () => {
                                     onChange={( event ) => {
                                         setUsername( event.target.value )
                                     }}
-                                    ref={register( { required, maxLength: 20, minLength: 3 } )}
+                                    ref={register( { required: true, maxLength: 20, minLength: 3 } )}
                                 />
                                 {
                                     errors.username &&
@@ -75,7 +74,7 @@ const Register = () => {
                                     onChange={( event ) => {
                                         setEmail( event.target.value )
                                     }}
-                                    ref={register( { required, validate: isEmail } )}
+                                    ref={register( { required: true, validate: isEmail } )}
                                 />
                                 {
                                     errors.email &&
@@ -95,7 +94,7 @@ const Register = () => {
                                     onChange={( event ) => {
                                         setPassword( event.target.value )
                                     }}
-                                    ref={register( { required, maxLength: 40, minLength: 6 } )}
+                                    ref={register( { required: true, maxLength: 40, minLength: 6 } )}
                                 />
                                 {
                                     errors.password &&
