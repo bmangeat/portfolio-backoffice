@@ -79,7 +79,7 @@ const Register = () => {
                                 {
                                     errors.email &&
                                     <div className="alert alert-danger" role="alert">
-                                        This is not a valid email..
+                                        This is not a valid email.
                                     </div>
                                 }
                             </div>
