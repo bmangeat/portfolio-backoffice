@@ -57,12 +57,7 @@ const Login = () => {
                             onChange={( event ) => setUsername( event.target.value )}
                             ref={register( { required: true } )}
                         />
-                        {
-                            errors.username &&
-                            <div className="alert alert-danger" role="alert">
-                                This field is required!
-                            </div>
-                        }
+
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
@@ -74,12 +69,6 @@ const Login = () => {
                             onChange={( event ) => setPassword( event.target.value )}
                             ref={register( { required: true } )}
                         />
-                        {
-                            errors.password &&
-                            <div className="alert alert-danger" role="alert">
-                                This field is required!
-                            </div>
-                        }
                     </div>
                     <div className="form-group">
                         <button
