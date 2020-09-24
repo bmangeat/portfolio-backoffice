@@ -8,7 +8,7 @@ import AuthService from "../services/auth.service";
 
 const Login = () => {
     const history = useHistory();
-    const { register, handleSubmit, errors } = useForm()
+    const { register, handleSubmit } = useForm()
 
     const [ username, setUsername ] = useState( '' )
     const [ password, setPassword ] = useState( '' )
