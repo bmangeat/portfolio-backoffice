@@ -1,12 +1,12 @@
 import axios from 'axios'
 import authHeader from './auth-header'
 
-const API_URL = 'https://portfolio-api-bricemangeat.herokuapp.com/api/test/'
+const API_URL = 'https://portfolio-api-bricemangeat.herokuapp.com/api/access/'
 
 class UserService {
     getPublicContent() {
         return axios
-            .get( API_URL + `all` )
+            .get( API_URL + `public` )
     }
 
     getUserBoard() {
