@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 import UserService from "../services/user.service"
 import ProjectService from '../services/project.service'
@@ -46,10 +48,15 @@ const AdminBoard = () => {
                                     <p className='list-group-item-text'>{project.description}</p>
                                 </div>
 
-                                <div className='ml-auto p-2 align-self-center'>
+                                <div className=' btn-group-vertical ml-auto p-2 align-self-center' role="group">
 
-                                    <button className='btn btn-primary btn-sm'>Edit</button>
-                                    <button className='btn btn-danger btn-sm'>Delete</button>
+
+                                    <button type='button' className='btn btn-primary '>
+                                        <FontAwesomeIcon icon={faEdit}/>
+                                    </button>
+                                    <button type='button' className='btn btn-danger '>
+                                        <FontAwesomeIcon icon={faTrash}/>
+                                    </button>
                                 </div>
 
                             </li>
