@@ -54,7 +54,7 @@ const AdminBoard = () => {
                                     <button type='button' className='btn btn-primary '>
                                         <FontAwesomeIcon icon={faEdit}/>
                                     </button>
-                                    <button type='button' className='btn btn-danger '>
+                                    <button type='button' className='btn btn-danger' onClick={ProjectService.deleteOneProject(project.id)}>
                                         <FontAwesomeIcon icon={faTrash}/>
                                     </button>
                                 </div>
